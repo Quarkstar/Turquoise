@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stores
   root 'home_pages#home'
   
   get   '/help',    to: 'home_pages#help'

@@ -30,6 +30,10 @@ module SessionsHelper
         !current_user.nil?
     end
 
+    def has_store?
+        !current_user.store.nil?
+    end
+
     def sign_out
         forget(current_user)
         session.delete(:user_id)

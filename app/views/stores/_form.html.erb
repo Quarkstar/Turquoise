@@ -1,0 +1,18 @@
+<div class = "row">
+    <div class = "col-md-6 col-md-offset-3">
+        <%= form_for(@store) do |form|%>
+            <%= render 'shared/store_error'%>
+
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control'%>
+  
+    <%= form.label :info %>
+    <%= form.text_area :info, class: 'form-control'%>
+
+    <%= form.label :tel %>
+    <%= form.text_field :tel, class: 'form-control'%>
+ 
+    <%= form.submit "create my store", class:"btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
