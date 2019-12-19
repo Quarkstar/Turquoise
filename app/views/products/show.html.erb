@@ -1,0 +1,53 @@
+<% provide(:title, @product.name)%>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <p>
+        <strong>Name:</strong>
+        <%= @product.name %>
+      </p>
+
+      <p>
+        <strong>category:</strong>
+        <%= @product.category %>
+      </p>
+
+      <p>
+        <strong>Info:</strong>
+        <%= @product.info %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @product.price %>
+      </p>
+      
+      <span class="content">
+        <%= link_to 'Goto Store', @product.store , class:"btn btn-warning btn-block"%>
+      </span>
+
+      <span class="content">
+        <%= link_to 'Add comment', new_product_comment_path(@product), class:"btn btn-primary btn-block"%>
+      </span>
+      <span class="content">
+        <%= link_to 'Add to cart',new_product_cart_path(@product), class:"btn btn-success btn-block"%>
+      </span>
+      <% if current_user.store == @product.store %>
+      <span class="content">
+        <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-info btn-block" %>
+      </span>
+      <% end %>
+
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @product.comments.any? %>
+    <h3>Comments </h3>
+      <ol class="products">
+        <%= render @comments %>
+      </ol>
+    <%= will_paginate @comments %>
+    <% end %>
+  </div>
+</div>

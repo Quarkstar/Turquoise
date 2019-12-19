@@ -55,4 +55,17 @@ module SessionsHelper
         session[:forwarding_url] = request.original_url if request.get?
     end
 
+    def signed_in_user
+        unless signed_in?
+          store_location
+          flash[:danger] = "Please log in."
+          redirect_to signin_url
+        end
+    end
+  
+  
+    def admin_user
+        redirect_to(root_url) unless current_user.admin?
+    end
+
 end

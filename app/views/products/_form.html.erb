@@ -1,0 +1,21 @@
+<div class = "row">
+    <div class = "col-md-6 col-md-offset-3">
+        <%= form_for(@product) do |f|%>
+            <%= render 'shared/error_messages', object: @product %>
+    
+        <%= f.label :name%>
+        <%= f.text_field :name, class: 'form-control'%>
+
+        <%= f.label :category%>
+        <%= f.text_field :category, class: 'form-control'%>
+
+        <%= f.label :info%>
+        <%= f.text_field :info, class: 'form-control'%>
+
+        <%= f.label :price, "Price"%>
+        <%= f.number_field :price, class: 'form-control'%>
+        
+        <%= f.submit yield(:btn_text), class:"btn btn-primary"%>
+        <%end%>
+    </div>
+</div>

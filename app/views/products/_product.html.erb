@@ -1,0 +1,22 @@
+<li id="product-<%= product.id %>">
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"> <%= link_to product.name, product%> 
+            <span class="label label-info"> <%= product.category %></span>
+        </h3>
+        
+    </div>
+    <div class="panel-body">
+
+    <span class="content"> <small><p> <%= product.info %> </p></small> </span>
+
+    <span class="content"> <strong>Price: <%= product.price%> </strong> </span>
+    <div class="panel-footer">
+        <span class="timestamp">
+        Added <%= time_ago_in_words(product.created_at) %> ago.
+        </span>
+    </div>
+    
+    </div>
+</div>
+</li>

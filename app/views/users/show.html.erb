@@ -2,10 +2,29 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user%>
-        <%= @user.name%>
+      <h1 class='content'>
+          <%= gravatar_for @user%>
+        <p>
+          <%= @user.name%>
+        </p>
       </h1>
+      <span class='content'>
+        <% if current_user == @user %>
+        <%= link_to "View my order", orders_path, class: "btn btn-info"%>
+        <% end %>
+      </span>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if current_user == @user %>
+      <%= link_to "Buy All(#{@user.carts.count})", new_order_path, class: "btn btn-success btn-block"%>
+    <% end %>
+    <% if @user.carts.any? %>
+    <h3>My shopping carts </h3>
+      <ol class="products">
+        <%= render @carts %>
+      </ol>
+    <%= will_paginate @carts %>
+    <% end %>
+  </div>
 </div>

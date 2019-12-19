@@ -1,6 +1,11 @@
 class User < ApplicationRecord
     has_one :store, dependent: :destroy
 
+    has_many :carts, dependent: :destroy
+    has_many :orders, dependent: :destroy  
+    has_many :comments, dependent: :destroy
+    has_many :addresses, dependent: :destroy
+    
     attr_accessor :remember_token
     
     before_save {email.downcase!}

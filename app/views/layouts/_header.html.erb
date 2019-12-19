@@ -5,10 +5,10 @@
             <ul class="nav navbar-nav navbar-right">
                 <% if signed_in?%>
                     <li><%= link_to "Users", users_path %></li>
-                    <li><%= link_to "Profile", current_user %></li>
+                    <li><%= link_to "Cart", current_user %></li>
                     <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                     <% if has_store? %>
-                        <li><%= link_to "My store", store_path(current_user.store)%>                       
+                        <li><%= link_to "My store", store_path(current_user.store) %>                       
                     <% else %>
                         <li><%= link_to "New store", new_store_path%><li>
                     <% end %>

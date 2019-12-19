@@ -1,0 +1,13 @@
+<div class = "row">
+  <div class = "col-md-6 col-md-offset-3">
+    <%= form_for(@cart, url:product_carts_path) do |form|%>
+      <%= render 'shared/error_messages', object: @cart%>
+  
+      <%= form.label :num %>
+      <%= form.number_field :num, class: 'form-control'%>
+ 
+      <%= form.submit 'I want to buy it', class: 'btn btn-primary'%>
+      <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,21 @@
+<li id="comment-<%= comment.id %>">
+    <%#= link_to gravatar_for(store.user, size: 50), store.user %>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title"> <%= link_to comment.user.name, comment.user%> </h3>
+    </div>
+
+    <div class="panel-body">
+    <span class="content"> <%= comment.content%> </span>
+    <span class="timestamp">
+        Added <%= time_ago_in_words(comment.created_at) %> ago.
+    </span>
+    
+    </div>
+</div>
+    <% if comment.user == current_user %>
+    <%= link_to "Remove", product_comment_path(comment), class:"btn btn-danger",
+        method: :delete, data: { confirm: 'Are you sure?' }%>
+    <% end %>
+</li>

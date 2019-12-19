@@ -1,0 +1,28 @@
+<% provide(:title, @order.user.name)%>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <p>
+        <span>Address:<%= @order.address %></span>
+        <% if @order.status == 0%>
+          <span class="label label-info"> Processing </span>
+        <% else %>
+          <span class="label label-success"> Finish </span>
+        <% end %>
+      </p>
+      <% if @order.status == 0%>
+      <span class="content">
+        <%= link_to 'Finish', edit_order_path(@order),class:"btn btn-success btn-block"%>
+      </span>
+      <% end %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @order.order_items.any? %>
+    <h3> Products </h3>
+      <ol class="products">
+        <%= render @order_items %>
+      </ol>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div class = "row">
+  <div class = "col-md-6 col-md-offset-3">
+    <%= form_for(@comment, url:product_comments_path) do |form|%>
+      <%= render 'shared/error_messages', object: @comment%>
+  
+      <%= form.label :content %>
+      <%= form.text_area :content, class: 'form-control'%>
+ 
+      <%= form.submit 'Add Comment', class: 'btn btn-primary'%>
+      <% end %>
+  </div>
+</div>

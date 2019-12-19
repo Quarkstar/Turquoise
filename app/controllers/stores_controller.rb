@@ -11,6 +11,7 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @products = @store.products.paginate(page: params[:page])
   end
 
   # GET /stores/new

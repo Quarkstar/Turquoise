@@ -1,24 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+<aside class="col-md-4">
+  <section class="user_info">
+    <h3>Welcome to <%= @store.name %> </h3>
+    <span class="content">
+        <span><%= @store.info %></span>  
+        <p><strong> Contact:<%= @store.tel %> </strong></p>
+        <% if signed_in? && has_store? &&current_user.store.id == @store.id %>
+        <%= link_to 'Edit', edit_store_path(@store), class:"btn btn-warning btn-block" %> 
+        <%= link_to 'Add new product', new_product_path, class:"btn btn-success btn-block" %>
+        <% end %>
+    </span>
+</section>
+</aside>
 
-<p>
-  <strong>User:</strong>
-  <%= @store.user.name %>
-</p>
+<div class="col-md-8">
+  <% if @store.products.any? %>
+  <h3>Products (<%= @store.products.count %>)</h3>
+    <ol class="products">
+      <%= render @products %>
+    </ol>
+  <%= will_paginate @products %>
+  <% end %>
+</div>
+</div>
+  
 
-<p>
-  <strong>Name:</strong>
-  <%= @store.name %>
-</p>
-
-<p>
-  <strong>Info:</strong>
-  <%= @store.info %>
-</p>
-
-<p>
-  <strong>Tel:</strong>
-  <%= @store.tel %>
-</p>
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>
