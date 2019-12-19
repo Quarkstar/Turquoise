@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :products
+
   root 'home_pages#home'
   
   get   '/help',    to: 'home_pages#help'
@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get   '/signin',  to: 'sessions#new'
   post  '/signin',  to: 'sessions#create'
   get   '/signout', to: 'sessions#destroy'
-  
+  get   '/echart',  to: 'admin#echart'
+  get   '/sale',    to: 'admin#sale'
+
   resources :users do
     resources :addresses   
   end

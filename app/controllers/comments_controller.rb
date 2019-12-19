@@ -54,9 +54,10 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
+    product = @comment.product
     @comment.destroy
     flash[:success] = "Comment Destroyed"
-    redirect_to @product
+    redirect_to product
   end
 
   private

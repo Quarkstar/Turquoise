@@ -15,7 +15,7 @@
     </div>
 </div>
     <% if comment.user == current_user %>
-    <%= link_to "Remove", product_comment_path(comment), class:"btn btn-danger",
+    <%= link_to "Remove", product_comment_path(@product, comment), class:"btn btn-danger",
         method: :delete, data: { confirm: 'Are you sure?' }%>
     <% end %>
 </li>
