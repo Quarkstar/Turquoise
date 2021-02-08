@@ -31,7 +31,7 @@ gem 'bootstrap-will_paginate', '~> 1.0.0'
 gem 'bcrypt', '~> 3.1.11'
 gem 'will_paginate', '~> 3.2.1'
 gem 'mini_magick', '~> 4.9'
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
